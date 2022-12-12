@@ -1,6 +1,6 @@
 from decouple import config
 
-HASHTAGS = ['#ai', '#aiart', '#aiartwork', '#aiartists', '#aiartcommunity', '#aiartdaily', '#aiartist']
+HASHTAGS = ['#ai', '#aiart', '#aiartwork', '#aiartists', '#aiartcommunity', '#aiartdaily', '#aiartist', '#artificialintelligence', '#machinelearning', '#generativeart', '#digitalart', '#futureart', '#robotart', '#cyberart']
 
 
 def build_caption(title, image_generation_prompt, summary):
