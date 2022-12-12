@@ -13,6 +13,10 @@ def generate_file_name(image_generation_prompt, subject):
     clean_subject = "_".join(subject.strip().lower().split(" "))
     return f"{day}_{clean_subject}_{prompt_hash}.jpg"
 
+def build_file_path(file_name):
+    dir = os.path.dirname(__file__)
+    return os.path.join(dir, '..','..','images', file_name)
+
 def generate_and_save_image(image_generation_prompt, subject):
     print(f"Generating image for prompt: {image_generation_prompt}")
     response = openai.Image.create(
@@ -24,9 +28,7 @@ def generate_and_save_image(image_generation_prompt, subject):
     print(f"Generated image at url: {image_url}")
 
     file_name = generate_file_name(image_generation_prompt, subject)
-    dir = os.path.dirname(__file__)
-    full_file_path = os.path.join(dir, '..','..','images', file_name)
-    urllib.request.urlretrieve(image_url, full_file_path)
+    urllib.request.urlretrieve(image_url, build_file_path(file_name))
     print(f"Finished downloading file locally to: {file_name}")
     return image_url
 
@@ -60,3 +62,4 @@ def interpolate_image_generation_prompt(string, image_generation_prompt):
 def fetch_completion(prompt):
     completion = openai.Completion.create(engine=config('GENERATIVE_TEXT_ENGINE'), prompt=prompt, max_tokens=2048)
     return completion.choices[0].text.strip()
+
