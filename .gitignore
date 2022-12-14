@@ -1,4 +1,6 @@
 .env
+*.pyc
+*.pyo
 images/*
 .DS_Store
 generated_results.csv
