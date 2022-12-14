@@ -7,7 +7,7 @@ dir = os.path.dirname(__file__)
 file_path = os.path.join(dir, '..','..', 'generated_results.csv')
 
 
-def save_entry(subject, title, summary, file_name):
+def save_content(subject, title, summary, file_name):
     if os.path.isfile(file_path):
         print('Found storage file, appending row')
         with open(file_path, 'a') as csvfile:
