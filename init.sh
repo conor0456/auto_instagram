@@ -1,4 +1,2 @@
 #!/bin/bash
-cd ~/auto_instagram
-git pull
-pip install -r requirements.txt
+sudo apt-get install ffmpeg libsm6 libxext6  -y
