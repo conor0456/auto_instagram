@@ -1,3 +1,1 @@
-python -m nltk.downloader all
-pip install openai
-pip install python-decouple
+python3 install -r requirements.txt

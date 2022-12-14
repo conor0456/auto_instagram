@@ -62,4 +62,3 @@ def interpolate_image_generation_prompt(string, image_generation_prompt):
 def fetch_completion(prompt):
     completion = openai.Completion.create(engine=config('GENERATIVE_TEXT_ENGINE'), prompt=prompt, max_tokens=2048)
     return completion.choices[0].text.strip()
-

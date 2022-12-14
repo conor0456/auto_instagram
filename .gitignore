@@ -1,3 +1,4 @@
 .env
-images
+images/*
 .DS_Store
+generated_results.csv
