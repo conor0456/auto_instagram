@@ -12,8 +12,6 @@ import requests
 SCOPES = ['https://www.googleapis.com/auth/drive']
 AUTHORIZATION_URL = "https://oauth2.googleapis.com/token"
 FOLDER_ID = config('GOOGLE_DRIVE_IMAGE_DIRECTORY_ID')
-CREDENTIALS_FILE_NAME = config('GOOGLE_DRIVE_CREDENTIALS_FILE_NAME')
-TOKEN_FILE_NAME = config('GOOGLE_DRIVE_TOKEN_FILE_NAME')
 dir = os.path.dirname(__file__)
 
 def upload_file_to_drive(file_name):
