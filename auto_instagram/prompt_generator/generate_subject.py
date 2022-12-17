@@ -1,7 +1,7 @@
 import os
 import random
 
-def fetch_random_artist():
+def fetch_random_subject():
     dir = os.path.dirname(__file__)
-    lines = open(os.path.join(dir, "artists.csv")).read().splitlines()
+    lines = open(os.path.join(dir, "subjects.csv")).read().splitlines()
     return random.choice(lines).title()
