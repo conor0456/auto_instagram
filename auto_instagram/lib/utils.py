@@ -32,6 +32,6 @@ def read_bool_config(config_name):
         return value.strip().lower() == 'true'
 
 def clean_up_local_image(file_name):
-    print('Deleting local file')
+    print(f"Deleting local file: {file_name}")
     path = os.path.join(dir, '..','..','images', file_name)
     os.remove(path)

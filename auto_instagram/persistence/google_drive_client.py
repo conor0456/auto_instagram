@@ -25,10 +25,10 @@ def upload_file_to_drive(file_name):
         }
         media = MediaFileUpload(os.path.join(dir, '..','..','images', file_name),
                                 mimetype='image/jpg')
-        print(f"Uploading file {file_name} to google drive")
+        print(f"Attempting to upload file {file_name} to google drive")
         file = service.files().create(body=file_metadata, media_body=media,
                                       fields='id').execute()
-        print("successfully uploaded file to google drive")
+        print("Successfully uploaded file to google drive")
     except Exception as e:
         print(f"Encountered error: {e} when attempting to save to google drive, skipping for now")
 

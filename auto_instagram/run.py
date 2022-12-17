@@ -1,7 +1,7 @@
 import open_ai.client as ai_client
 import instagram.helper as helper
 import instagram.client as instagram_client
-import prompt_generator.generate_artist as artist_generator
+import prompt_generator.generate_subject as subject_generator
 import image_upscaling.cv2_client as upscaler
 import persistence.local_storage as local_storage
 import persistence.google_drive_client as google_storage
@@ -9,7 +9,7 @@ import lib.utils as utils
 
 utils.print_run_configs()
 
-subject = artist_generator.fetch_random_artist()
+subject = subject_generator.fetch_random_subject()
 image_generation_prompt = ai_client.generate_image_generation_prompt(subject)
 file_name = ai_client.generate_file_name(image_generation_prompt, subject)
 summary = ai_client.generate_subject_summary(subject)
@@ -28,7 +28,6 @@ if utils.should_persist_image_remotely():
     google_storage.upload_file_to_drive(file_name)
 
 if not utils.should_persist_image_locally():
-    print(f"PERSIST LOCALLY: {utils.should_persist_image_locally()}")
     utils.clean_up_local_image(file_name)
 
 print(f"Completed all tasks")
