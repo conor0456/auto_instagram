@@ -1,4 +1,10 @@
 # Auto Instagram
+## Setup
+```
+git clone git@github.com/auto_instagram.git
+cd auto_instagram
+./init.sh
+```
 ## Summary
 This application is designed to be copied to a server and ran periodically with `cron`. The application generates content using OpenAI's models and publishes the result to Instagram. For an example of what the application is capable of you can view a sample Instagram page [here](https://www.instagram.com/rothkoauto/).
 
@@ -33,13 +39,6 @@ This application runs the following steps in the `auto_instagram/run.py` file
 9. (Optional) Upscale the image to 4k
 10. (Optional) Save image remotely
 11. (Optional) Delete local image
-
-## Setup
-```
-git clone git@github.com/auto_instagram.git
-cd auto_instagram
-./init.sh
-```
 
 ## Credentials
 There are three sources of credentials you will need to run this script:
@@ -84,7 +83,7 @@ Additionally, you can control individual application runs with the following set
 | `PERSIST_IMAGES_REMOTELY` |  Whether the application should save the image remotely | `False` |
 
 
-These runtime configs can also be passed in at runtime
+These runtime configs can also be passed in when running the script
 
 |Argument   |Shorthand            |Full Argument |
 |--------------------------|:---------------------------|:------|
@@ -94,7 +93,11 @@ These runtime configs can also be passed in at runtime
 | `PERSIST_IMAGES_REMOTELY` |  `-r` | `--store_remotely` |
 
 
-Now you can run the script using the command:
+## Example Uses
 ```
-python auto_instagram/run.py -p true -r true -l false
+# Generate the image and save it to Google Drive but do not post to instagram:
+python auto_instagram/run.py -p False -r True
+
+# Generate the image, upscale it, and post it to Instagram without saving the image to Google Drive or locally
+python auto_instagram/run.py -p True -u True -l False -r False
 ```
