@@ -10,7 +10,7 @@ This application is designed to be copied to a server and ran periodically with 
 
 ##### Key Data Models
 |Data Model   |Description                              |
-|--------------------------|:---------------------------|
+|:--------------------------|:---------------------------|
 | `Subject` |  A `subject` is the focus of an individual application run. It should be a proper noun like `Jackson Pollock` or `Frank Lloyd Wright` |
 | `Prompt` |  A `prompt` is a key concept in OpenAI's generative models. The prompt is used to generate text or images, you can learn more about them [here](https://beta.openai.com/docs/guides/completion/prompt-design) |
 | `Persistence` |  After generating the image we can choose to `persist` the image either locally or to Google Drive |
@@ -18,7 +18,7 @@ This application is designed to be copied to a server and ran periodically with 
 
 ##### Application Modules
 |Module   |Description                              |
-|--------------------------|:---------------------------|
+|:--------------------------|:---------------------------|
 | `image_upscaling` | Currently OpenAI only generates images up to a `1080x1080` resolution. The `image_upscaling` package offers the `cv2_client` module which enables upscaling of the images to 4k  |
 | `instagram` | The `instagram` package contains the `client` module for publishing images to Instagram as well as a `helper` module which contains methods useful in generating the Instagram post   |
 | `lib` | The `lib` package contains the `utils` module for all miscellaneous methods useful to the application  |
@@ -49,7 +49,7 @@ There are three sources of credentials you will need to run this script:
 Credentials must be stored in an environment config file named `.env` following the example provided in `.env_example`
 
 |Configuration Key   |Description            |Requied |
-|--------------------------|:---------------------------|:------|
+|:--------------------------|:---------------------------|:------|
 | `OPEN_AI_TOKEN` |  Oauth token generated with developer account | `True` |
 | `INSTAGRAM_CLIENT_ID` |  Facebook Application ID | `True` |
 | `INSTAGRAM_CLIENT_SECRET` |  Facebook Application secret | `True` |
@@ -64,7 +64,7 @@ Credentials must be stored in an environment config file named `.env` following 
 Within the same `.env` file you can control the application settings
 
 |Configuration Key   |Description            |Requied |
-|--------------------------|:---------------------------|:------|
+|:--------------------------|:---------------------------|:------|
 | `GENERATIVE_TEXT_ENGINE` |  Which OpenAI model to use for prompt generation. Learn more about the models [here](https://beta.openai.com/docs/models/gpt-3) | `True` |
 | `IMAGE_PROMPT_GENERATION_PROMPT` |  The prompt sent to generate the prompt the application will use to build the image. Use `{SUBJECT}` to interpolate the `Subject` into the prompt  | `True` |
 | `SUMMARY_GENERATION_PROMPT` |  The prompt used to generate the summary of the subject. Use `{SUBJECT}` to interpolate the `Subject` into the prompt | `True` |
@@ -76,7 +76,7 @@ Within the same `.env` file you can control the application settings
 Additionally, you can control individual application runs with the following settings. If not defined, the configurations will default to `False`
 
 |Configuration Key   |Description            |Requied |
-|--------------------------|:---------------------------|:------|
+|:--------------------------|:---------------------------|:------|
 | `POST_TO_INSTAGRAM` |  Whether the application should post the result to Instagram | `False` |
 | `UPSCALE_IMAGE` |  Whether the application should upscale the image to 4k | `False` |
 | `PERSIST_IMAGES_LOCALLY` |  Whether the application should save the image locally | `False` |
@@ -86,7 +86,7 @@ Additionally, you can control individual application runs with the following set
 These runtime configs can also be passed in when running the script
 
 |Argument   |Shorthand            |Full Argument |
-|--------------------------|:---------------------------|:------|
+|:--------------------------|:---------------------------|:------|
 | `POST_TO_INSTAGRAM` |  `-p` | `--post_to_instagram` |
 | `UPSCALE_IMAGE` |  `-u` | `--upscale_image` |
 | `PERSIST_IMAGES_LOCALLY` |  `-l` | `--store_locally` |
