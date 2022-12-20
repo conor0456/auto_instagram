@@ -59,6 +59,7 @@ Credentials must be stored in an environment config file named `.env` following 
 | `GOOGLE_DRIVE_CLIENT_SECRET` |  Google oauth client secret | `False` |
 | `GOOGLE_DRIVE_CLIENT_REFRESH_TOKEN` |  Google oauth client long living token | `False` |
 
+Facebook tokens last at most 60 days before expiration. Unfortunately there is no current mechanism for refreshing the oauth token without input from the user. To generate a new `INSTAGRAM_GENERATED_TOKEN` token, first fetch an oauth token from your facebook application and exchange it with the `exchange_short_token_for_long_token` method in the `instagram/client` module. This will open a page that will prompt you to log in to your Facebook developer account.
 
 ## Generic Configuration Settings
 Within the same `.env` file you can control the application settings
@@ -69,7 +70,8 @@ Within the same `.env` file you can control the application settings
 | `IMAGE_PROMPT_GENERATION_PROMPT` |  The prompt sent to generate the prompt the application will use to build the image. Use `{SUBJECT}` to interpolate the `Subject` into the prompt  | `True` |
 | `SUMMARY_GENERATION_PROMPT` |  The prompt used to generate the summary of the subject. Use `{SUBJECT}` to interpolate the `Subject` into the prompt | `True` |
 | `TITLE_GENERATION_PROMPT` |  The prompt used to generate the title of the image. Use `{SUBJECT}` to interpolate the `Subject` and `{IMAGE_GENERATION_PROMPT}` to interpolate the `image generation prompt` into the prompt | `True` |
-| `GOOGLE_DRIVE_IMAGE_DIRECTORY_ID` |  Path within google drive in which to save the generated images. Navigate to the folder in Google Drive and pull the id from the URL | `True` |
+| `GOOGLE_DRIVE_IMAGE_DIRECTORY_ID` |  Path within google drive in which to save the generated images. Navigate to the folder in Google Drive and pull the id from the URL | `False` |
+| `RESAMPLING_LOOKBACK_THRESHOLD` | Exclude `N` previously generated `subjects` from the list of eligible `subjects` that can be sampled from. Setting this value to `0` will result in resampling with no threshold | `False` |
 
 
 ## Runtime Configuration Settings
