@@ -12,7 +12,8 @@ def fetch_random_subject():
     if lookback_window == 0 or len(previous_subjects) == 0:
         return random.choice(list_of_subjects)
     for previous_subject in previous_subjects:
-        list_of_subjects.remove(previous_subject)
+        if previous_subject in list_of_subjects:
+            list_of_subjects.remove(previous_subject)
     if len(list_of_subjects) == 0:
         raise Exception('No subjects available after removing the lookback threshold')
     return random.choice(list_of_subjects)
@@ -50,5 +51,3 @@ def fetch_lookback_window():
     if value is None:
         return 0
     return int(value)
-
-print(fetch_random_subject())
