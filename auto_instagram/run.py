@@ -9,7 +9,11 @@ import lib.utils as utils
 
 utils.print_run_configs()
 
-subject = subject_generator.fetch_random_subject()
+if utils.subject_override() is not None:
+    subject = utils.subject_override()
+else:
+    subject = subject_generator.fetch_random_subject()
+
 image_generation_prompt = ai_client.generate_image_generation_prompt(subject)
 file_name = ai_client.generate_file_name(image_generation_prompt, subject)
 summary = ai_client.generate_subject_summary(subject)

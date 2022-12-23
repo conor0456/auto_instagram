@@ -5,6 +5,7 @@ images/*
 .DS_Store
 generated_results.csv
 auto_run_output.txt
+auto_instagram/subject_generator/subjects.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
