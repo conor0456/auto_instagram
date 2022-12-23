@@ -1,7 +1,7 @@
 # Auto Instagram
 ## Setup
 ```
-git clone git@github.com/auto_instagram.git
+git clone git@github.com:conor0456/auto_instagram.git
 cd auto_instagram
 ./init.sh
 ```
@@ -46,7 +46,10 @@ There are three sources of credentials you will need to run this script:
 2. [Facebook](https://developers.facebook.com/docs/facebook-login/guides/access-tokens/)
 3. [Google Drive](https://developers.google.com/drive/api/guides/api-specific-auth)
 
-Credentials must be stored in an environment config file named `.env` following the example provided in `.env_example`
+Credentials must be passed in using one of the following methods
+1. Stored in an environment config file named `.env` at the root of the project following the example provided in `.env_example`
+2. As environment variables passed in when calling the script, fow example: `OPEN_AI_TOKEN=sample_token python auto_instagram/run.py`
+
 
 |Configuration Key   |Description            |Requied |
 |:--------------------------|:---------------------------|:------|
@@ -77,12 +80,13 @@ Within the same `.env` file you can control the application settings
 ## Runtime Configuration Settings
 Additionally, you can control individual application runs with the following settings. If not defined, the configurations will default to `False`
 
-|Configuration Key   |Description            |Requied |
-|:--------------------------|:---------------------------|:------|
-| `POST_TO_INSTAGRAM` |  Whether the application should post the result to Instagram | `False` |
-| `UPSCALE_IMAGE` |  Whether the application should upscale the image to 4k | `False` |
-| `PERSIST_IMAGES_LOCALLY` |  Whether the application should save the image locally | `False` |
-| `PERSIST_IMAGES_REMOTELY` |  Whether the application should save the image remotely | `False` |
+|Configuration Key   |Description            |Requied | Default|
+|:--------------------------|:---------------------------|:------|:-------|
+| `POST_TO_INSTAGRAM` |  Whether the application should post the result to Instagram | `False` |`False`|
+| `UPSCALE_IMAGE` |  Whether the application should upscale the image to 4k | `False` |`False`|
+| `PERSIST_IMAGES_LOCALLY` |  Whether the application should save the image locally | `False` |`False`|
+| `PERSIST_IMAGES_REMOTELY` |  Whether the application should save the image remotely | `False` |`False`|
+| `SUBJECT_OVERRIDE` |  Override the generated subject to this value | `False` |`None`|
 
 
 These runtime configs can also be passed in when running the script
@@ -93,12 +97,13 @@ These runtime configs can also be passed in when running the script
 | `UPSCALE_IMAGE` |  `-u` | `--upscale_image` |
 | `PERSIST_IMAGES_LOCALLY` |  `-l` | `--store_locally` |
 | `PERSIST_IMAGES_REMOTELY` |  `-r` | `--store_remotely` |
+| `SUBJECT_OVERRIDE` |  `-s` | `--subject_override` |
 
 
 ## Example Uses
 ```
-# Generate the image and save it to Google Drive but do not post to instagram:
-python auto_instagram/run.py -p False -r True
+# Generate the image for Mark Rothko and save it to Google Drive but do not post to instagram:
+python auto_instagram/run.py -p False -r True -s "Mark Rothko"
 
 # Generate the image, upscale it, and post it to Instagram without saving the image to Google Drive or locally
 python auto_instagram/run.py -p True -u True -l False -r False

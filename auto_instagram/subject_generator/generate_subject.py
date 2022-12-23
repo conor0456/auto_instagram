@@ -15,7 +15,7 @@ def fetch_random_subject():
         if previous_subject in list_of_subjects:
             list_of_subjects.remove(previous_subject)
     if len(list_of_subjects) == 0:
-        raise Exception('No subjects available after removing the lookback threshold')
+        raise Exception('No subjects available after removing the subjects from the lookback threshold')
     return random.choice(list_of_subjects)
 
 def fetch_previous_subjects():
