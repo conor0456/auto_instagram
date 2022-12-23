@@ -28,7 +28,7 @@ def should_upscale_image():
     return coalesce_config_with_arguments(read_argument_bool_value('upscale_image'), read_optional_bool_config('UPSCALE_IMAGE')) or False
 
 def should_persist_image_locally():
-    return coalesce_config_with_arguments(read_argument_bool_value('store_locally'), read_optional_bool_config('PERSIST_IMAGES_LOCALLY')) or False
+    return coalesce_config_with_arguments(read_argument_bool_value('store_locally'), read_optional_bool_config('PERSIST_IMAGES_LOCALLY')) or True
 
 def should_persist_image_remotely():
     return coalesce_config_with_arguments(read_argument_bool_value('store_remotely'), read_optional_bool_config('PERSIST_IMAGES_REMOTELY')) or False

@@ -80,11 +80,11 @@ Within the same `.env` file you can control the application settings
 ## Runtime Configuration Settings
 Additionally, you can control individual application runs with the following settings. If not defined, the configurations will default to `False`
 
-|Configuration Key   |Description            |Requied | Default|
+|Configuration Key   |Description            |Requied |Default|
 |:--------------------------|:---------------------------|:------|:-------|
 | `POST_TO_INSTAGRAM` |  Whether the application should post the result to Instagram | `False` |`False`|
 | `UPSCALE_IMAGE` |  Whether the application should upscale the image to 4k | `False` |`False`|
-| `PERSIST_IMAGES_LOCALLY` |  Whether the application should save the image locally | `False` |`False`|
+| `PERSIST_IMAGES_LOCALLY` |  Whether the application should save the image locally | `False` |`True`|
 | `PERSIST_IMAGES_REMOTELY` |  Whether the application should save the image remotely | `False` |`False`|
 | `SUBJECT_OVERRIDE` |  Override the generated subject to this value | `False` |`None`|
 
