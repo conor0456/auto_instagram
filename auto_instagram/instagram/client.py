@@ -8,24 +8,27 @@ api = GraphAPI(access_token=config('INSTAGRAM_GENERATED_TOKEN'))
 
 def post_file_to_instagram_with_caption(url, caption):
     print(f"Publishing photo stored at {url}")
-    data = api.post_object(
-        object_id=INSTAGRAM_BUSINESS_ID,
-        connection="media",
-        params={
-            "image_url": url,
-            "caption": caption,
-        },
-    )
-    container_id = data["id"]
-    print(f"Published photo to container, receieved id: {container_id}")
-    publish_data = api.post_object(
-        object_id=INSTAGRAM_BUSINESS_ID,
-        connection="media_publish",
-        params={
-            "creation_id": container_id,
-        },
-    )
-    print("Image published!")
+    try:
+        data = api.post_object(
+            object_id=INSTAGRAM_BUSINESS_ID,
+            connection="media",
+            params={
+                "image_url": url,
+                "caption": caption,
+            },
+        )
+        container_id = data["id"]
+        print(f"Published photo to container, receieved id: {container_id}")
+        publish_data = api.post_object(
+            object_id=INSTAGRAM_BUSINESS_ID,
+            connection="media_publish",
+            params={
+                "creation_id": container_id,
+            },
+        )
+        print("Image published!")
+    except:
+        print(f"Failed to publish photo to Instagram")
 
 # This method is used to convert a short lived token to a long lived token
 def exchange_short_token_for_long_token(short_lived_user_access_token):
